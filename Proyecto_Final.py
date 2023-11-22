@@ -18,14 +18,14 @@ class Juego:
         
         print(art)
 
-        print("Te encuentras de viaje en una ciudad grande y desconocida para ti...")
+        print("\nTe encuentras de viaje en una ciudad grande y desconocida para ti...")
         #time.sleep(5)
         
         print("Elige tu personaje:")
         #time.sleep(1)
 
         print("1. Personaje -> Mujer turista en un viaje por Paris")
-        print("2. Personaje -> Hombre")
+        print("2. Personaje -> Hombre historiador en una aventura en Egipto")
         personaje = input("Selecciona 1 o 2 ").lower()
         self.switch_personaje(personaje)
 
@@ -39,10 +39,11 @@ class Juego:
         selected_personaje()
 
 
-
 #               PERSONAJE 1
 
     def personaje1(self):
+        print("")
+        print("Has elegido el personaje 1, una mujer turista.\n ")
         print("Has elegido al Personaje 1. Una mujer turista.\n ")
         nombre = input("Ingresa nombre del personaje: ")
         print(f"Hola {nombre}! Bienvenida, aquí inicia el trayecto...")
@@ -52,6 +53,37 @@ class Juego:
         self.p_lugar()
 
     def p_lugar(self):
+        art = '''
+                |
+                |
+                A
+              _/X\_
+              \/X\/
+               |V|
+               |A|
+               |V|
+              /XXX\
+              |\/\|
+              |/\/|
+              |\/\|
+              |/\/|
+              |\/\|
+              |/\/|
+             IIIIIII
+             |\/_\/|
+            /\// \\/\
+            |/|   |\|
+           /\X/___\X/\
+          IIIIIIIIIIIII
+         /`-\/XXXXX\/-`\
+       /`.-'/\|/I\|/\'-.`\
+      /`\-/_.-"` `"-._ \-/\
+     /.-'.'           '.'-.\
+    /`\-/               \-/`\
+ _/`-'/`_               _`\'-`\_
+`"""""""`                `""""""` 
+'''
+        print(art)
         print("Estás en Francia, el país de los sueños. El tour que pagaste recién comienza, y estás emocionado. El guía pregunta a qué lugar quieren ir todos, pero tu voto es el decisivo.")
         eleccion = input("¿Ir al museo de Louvre (escribe 'Louvre') o ir a la Torre Eiffel (escribe 'Torre')? ").lower()
 
@@ -76,8 +108,8 @@ class Juego:
             self.p1_lou2a()
             
         elif eleccion == 'firmar':
-            print("\nLuego de toda la platica y la firma. Intentas volver con el tour pero ya no estan. Desaparecieron.Entonces regresas con la local a que te ayude a llegar a la embajada")     
-           #ARREGLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
+            print("\nLuego de toda la platica y la firma. Intentas volver con el tour pero ya no estan. Desaparecieron.")     
+            self.camino_hasta_encontrar()
         else:
             print("Opción no válida.")
             
@@ -138,7 +170,14 @@ class Juego:
             print("Opción no válida.")
             
     def resolver(self):
-            
+        art = '''
+            ooo,    .---.
+ o`  o   /    |\________________
+o`   'oooo()  | ________   _   _)
+`oo   o` \    |/        | | | |
+  `ooo'   `---'         "-" |_|
+  '''
+        print(art)
         print("La instruccion dice: Debes resolver correctamente cada pregunta para continuar a la siguiente.")
         print("Asi que inicias el juego y las pistas para encontrar los números son:")
         preguntas_respuestas = [
@@ -159,6 +198,24 @@ class Juego:
                     
     def respuestas_correctas(self):
         print("---------------La puerta ha sido abierta------------------")
+        art='''
+                    ______________
+            |\ ___________ /|
+            | |  _ _ _ _  | |
+            | | | | | | | | |
+            | | |-+-+-+-| | |
+            | | |-+-+-+-| | |
+            | | |_|_|_|_| | |
+            | |     ___   | |
+            | |    /__/   | |
+            | |   [%==] ()| |
+            | |         ||| |
+            | |         ()| |
+            | |           | |
+            | |           | |
+            | |           | |
+            |_|___________|_| '''
+        print(art)
         print("\nAl entrar a la habitacion secreta te das cuenta que hay muchos bocetos y pinturas de artistas famosos. Hay algunos preciosos que quisieras llevar contigo. Parece tan sencillo tomarlos, no parece haber nada de proteccion antirobo.")
         eleccion=input("\nTe llevas unas cuantas (Escribe llevar) o Tomas fotos y regresas a la salida antes de que alguien te descubra(Escribe salida").lower()
         
@@ -181,26 +238,20 @@ class Juego:
             print("Opción no válida.")
             
     #                                     TORRE
+     
     def p1_tor1(self) :
         print("\nSubes a la torre y te quedas maravillada con lo que estás viendo, la vista da a toda la ciudad y contemplas la ciudad entera ante tus ojos.")
         time.sleep(2)
-        print("\nEstando ahí observas que se acerca un hombre apuesto hacia ti, al llegar te empieza a hacer preguntas sobre ti y te pide tu número")
-        self.se_lo_das()
-              
-              
+        print("\nEstando ahí observas que se acerca un hombre apuesto hacia ti, al llegar te empieza a hacer preguntas sobre ti y te pide tu número...")
         
+        self.se_lo_das()
+                  
             
     def se_lo_das(self):
-        print("\nEl hombre se va y estás entusiasmada por que te llame, sin embargo, volteas hacia abajo y ves al tour en el que te encuentras yéndose hacia el camión. Debes decidir que hacer")
+        print("\nEl hombre se va y estás entusiasmada por que te llame, sin embargo, volteas hacia abajo y ves al tour en el que te encuentras yéndose hacia el camión. Debes decidir que hacer...")
         eleccion=input("\nIntentas correr y alcanzar al tour (Escribe correr) / Localicas al hombre y pides su ayuda (Escribe localizar) ").lower()
         if eleccion == 'localizar':
             self.localizar()
-        elif eleccion == 'correr':
-            self.correr()
-            
-    def correr(self):
-        print("\nCorres lo más rápido que puedes bajando las escaleras, pero llegas abajo y el camión ya había salido y tienes que hacer algo.")
-        eleccion=input("Caminas hasta encontrar el hotel (Escribe hotel) / Vas a donde recuerdas que era la siguiente parada (Escribe parada) ").lower()
         if eleccion == 'hotel':
             self.camino_hasta_encontrar()
         elif eleccion == 'parada':
@@ -208,6 +259,9 @@ class Juego:
             self.parada()
             
     def localizar(self):
+        print("“Recurres al hombre apuesto y le comentas lo que pasó, el hombre lo entiende y te ofrece ser tu compañía por el resto del viaje...")
+        print("Permaneces con él y te propone ir a otro lugar, al bajar te das cuenta que su vehículo es una moto, tú nunca has subido a una moto y te entran los nervios...")
+        eleccion=input("Te arriesgas y subes a la moto (moto)/ Propones tomar el metro (metro) ")
         print("“Recurres al hombre apuesto y le comentas lo que pasó, el hombre lo entiende y te ofrece ser tu compañía por el resto del viaje")
         print("Permaneces con él y te propone ir a otro lugar, al bajar te das cuenta que su vehículo es una moto, tú nunca has subido a una moto y te entran los nervios")
         eleccion=input("Te arriesgas y subes a la moto (moto)/ Propones tomar el metro (metro) ").lower
@@ -215,123 +269,133 @@ class Juego:
             self.moto()
         elif eleccion == 'metro':
             self.metro()
-
     def moto(self):
+        print("A pesar de los nervios subes a la moto y él decide decide ser tu guía a lo largo del viaje.")
+        eleccion = input("¿Qué quieres que te enseñe primero?” (restaurante, Notre Dame, rio sena) ")
         print("A pesar de los nervios subes a la moto y él decide decide ser tu guía a lo largo del viaje")
         eleccion = input("¿Qué quieres que te enseñe primero?” (restaurante, Notre Dame, rio sena)").lower
         if eleccion == 'restaurante':
             self.restaurante()
         if eleccion == 'notre dame':
             self.notre_dame()
-        if eleccion == "rio sena":
-            self.rio_sena()
-
+            
     def notre_dame(self):
         print("Llegan a Notre Dame, toman unas cuantas fotos y dan una que otra vuelta con su moto por el lugar, pasan a comprar un helado y se dan cuenta que ya se está haciendo un poco tarde, por lo que sabiendo que no cuentas con un lugar para dormir te ofrece ir a su casa, sin embargo, de igual manera pasaste por un hostel que se veía agradable donde podrías pasar la noche")
-        eleccion = input("Voy a su casa (Escribe casa) / Voy al hostal (Escribe hostal) ").lower
+        eleccion = input("Voy a su casa (Escribe casa) / Voy al hostal (Escribe hostal) ")
         if eleccion == "casa":
             self.conocer_casa()
         if eleccion == "hostal":
-            self.descansar()
-
+            pass #CHECAAAAAAAAAAAAAAAAAAAAAAR
     def rio_sena(self):
         print("Llegan al río Sena y deciden dar un un caminata por el río para apreciar el lugar, se va la noción del tiempo y se dan cuenta que ya se está haciendo un poco tarde, por lo que sabiendo que no cuentas con un lugar para dormir te ofrece ir a su casa, sin embargo, de igual manera pasaste por un hostel que se veía agradable donde podrías pasar la noche")
+        eleccion = input("Voy a su casa (Escribe casa) / Voy al hostal (Escribe hostal) ")
         eleccion = input("Voy a su casa (Escribe casa) / Voy al hostal (Escribe hostal) ").lower
         if eleccion == "casa":
             self.conocer_casa()
         if eleccion == "hostal":
-            self.descansar()
-
-
+            pass#CHECAAAAAAAAAAAAAR
+            
     def restaurante(self):
         print("Te lleva a un restaurante bellísimo con vista a toda la ciudad, comparten una buena conversación, pero se dan cuenta que ya está oscureciendo por lo que te ofrece ir a su casa a conocerla y pasar la noche, sin embargo, también viste un pequeño y agradable hostal en el camino")
+        eleccion = input("Voy a su casa (Escribe casa) / Voy al hostal (Escribe hostal) ")
         eleccion = input("Voy a su casa (Escribe casa) / Voy al hostal (Escribe hostal) ").lower
         if eleccion == "casa":
             self.conocer_casa()
         if eleccion == "hostal":
-            self.descansar()
-
+            pass#CHECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
     def metro(self):
         print("“Prefieres tomar el metro y él está de acuerdo, por lo que decide ser tu guía el resto del viaje e indicarte dónde se encuentra cada sitio, a dónde quieres ir primero? Te pregunta")
+        eleccion = input("A un restaurante (Escribe restaurante) / A Notre Dame (Escribe notre dame) / Al Río Sena (Escribe rio) ")
         eleccion = input("A un restaurante (Escribe restaurante) / A Notre Dame (Escribe Notre Dame) / Al Río Sena (Escribe rio) ").lower
         if eleccion == 'restaurante':
             self.restaurante()
         if eleccion == 'notre dame':
-            self.notre_dame()
-        if eleccion == 'rio':
-            self.rio_sena()
-
-    
+            pass#CHECHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
     def parada(self):
+        print("Estás tratando de recordar dónde era el siguiente lugar, pero no pareces recordar, por lo que sigues caminando sin rumbo, sin darte cuenta te encuentras en un callejón un tanto sospechoso y decides salir de ahí lo más rápido posible, sin embargo, antes de salir llega un asaltante y te pide que le des tus pertenencias")
         print("¡Hay un asaltante! y te pide que le des tus pertenencias")
         eleccion=input("Se las das (Escribe dar) / Te rehusas (Escribe rehusar) ").lower()
         if eleccion == 'dar':
             self.dar()
-        elif eleccion == 'rehusar':
-            print("Te rehusas a darle tus cosas, pero no te diste cuenta que el asaltante tenía un arma , por lo que para conseguir su objetivo te dispara")
-            print("Lo siento, mueres en un asalto")
-            self.fin_del_juego()
             
     def camino_hasta_encontrar(self):
         print("“Llevas caminando un buen rato y te das cuenta que te encuentras perdida, justo en ese momento empieza a llover y no sabes qué hacer, la mayoría de los lugares se encuentran cerrados por la hora, sin embargo, ves a lo lejos dos lugares con las luces aún encendidas, te das cuenta que uno es un bar y el otro es un pequeño hostal donde podrías pasar la noche, qué haces?")
+        eleccion=input("Vas al bar a tomar algo (Escribe bar)/ Vas al hostal a descansar (Escribe descansar) ")
         eleccion=input("Vas al bar a tomar algo (Escribe bar)/ Vas al hostal a descansar (Escribe descansar) ").lower
         if eleccion == 'bar':
             self.bar()
         elif eleccion == 'descansar':
-            self.descansar()
-            
+            pass#CHECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
     def bar(self):
         print ("Entras al bar, te sientas en la barra y pides..." )
         bebida = input("Qué bebida deseas tomar? ")      
+        print(f"...te encuentras tomando tu {bebida}, volteas y ves a aquel hombre apuesto que te habías encontrado antes al final de la barra, él te ve y se acerca a saludar, platican y pasan el rato y al término de la noche te invita a conocer su casa...")
         print(f"...te encuentras tomando tu {bebida}, volteas y ves a aquel hombre apuesto que te habías encontrado antes al final de la barra, él te ve y se acerca a saludar, platican y pasan el rato y al término de la noche te invita a conocer su casa")
         eleccion=input("Vas a concer su casa (Escribe casa) / Vas al hostal a descansa (Escribe descansar) ").lower()
         if eleccion == 'casa':
             self.conocer_casa()
-        elif eleccion == 'descansar':
             self.descansar()
             
     def conocer_casa(self):
+        print("\nDecides conocer su casa, pero en el camino te sorprende ver que su casa no era algo común, es una mansión inmensa con rejas enormes y guardias en cada puerta, vas entrando a la casa y te das cuenta de todo lo que tiene dentro, y de lo hermosa que es, sin embargo sientes un poco de escalofríos debido al frío que emite.")
         print("\nDecides conocer su casa, pero en el camino te sorprende ver que su casa no era algo común, es una mansión inmensa con rejas enormes y guardias en cada puerta, vas entrando a la casa y te das cuenta de todo lo que tiene dentro, y de lo hermosa que es, sin embargo sientes un poco de escalofríos debido al frío que emite")
         eleccion=input("Mejor regresas al hostal a descansar(Escribe descansar)/Te quedas(Escribe quedar) ").lower()
         if eleccion == 'quedar':
             self.me_quedo()
-        elif eleccion == 'descansar':
             self.descansar()
-
     def me_quedo(self):
+        print("Entras a la enorme mansión, inmediatamente el hombre te dirige hacia la habitación donde te hospedarás, en cuanto entras te cierra la puerta y le pone llave...")
+        time.sleep(1)
+        print("Te asustas y decides buscar la manera de huir inmediatamente...")
         print("Entras a la enorme mansión, inmediatamente el hombre te dirige hacia la habitación donde te hospedarás, en cuanto entras te cierra la puerta y le pone llave")
         time.sleep(3)
         print("Te asustas y decides buscar la manera de huir inmediatamente")
         time.sleep(1)
+        print("Observas tres alternativas diferentes, una es por la ventana, otra por el conducto del aire y por último por un acceso que está asegurado con código.")
+        eleccion = input("¿Cuál escoges? (ventana, conducto, codigo) ")
         print("Observas tres alternativas diferentes, una es por la ventana, otra por el conducto del aire y por último por un acceso que está asegurado con código")
         eleccion = input("¿Cuál escoges? (ventana, conducto, codigo) ").lower
         if eleccion == 'ventana':
             self.ventana()
         if eleccion == 'conducto':
-            self.conducto()
-        else:
             self.codigo()
-
     def ventana(self):
+        print("Intentas escapar por la ventana, el problema es que te encuentras en el segundo piso y es grande la distancia hasta el piso...")
+        time.sleep(2)
+        print("Buscas materiales a tu alrededor para escapar...")
+        material = input("¿Qué podrías utilizar para escapar? ")
+        print(f"{material} bien pensado! Utilizas la herramienta de escape y logras llegar al suelo sana y salva...")
+        print("Corres lo más rápido que puedes y te vas directo al aeropuerto para regresar a casa")
+        self.fin_del_juego()
         pass
-
     def conducto(self):
+        print("Decides escapar por el conducto de aire...")
+        time.sleep(2)
+        print("Para abrirlo ocupas un tipo de herramienta punteaguda. ")
+        herramienta = input("¿Qué se te ocurre que podrías utilizar? ")
+        print(f"{herramienta}, bien pensado! Logras abrir el coducto y subes...")
+        time.sleep(2)
+        print("No estás segura por dónde es el camino ni adonde vas a salir...")
+        time.sleep(1)
+        print("El conducto se divide en dos...")
+        camino = input("¿Por dónde te vas? Izquierda / Derecha ")
+        print(f"Tomas el camino de la {camino}, llegas a una habitación extraña, no sabes dónde estás.")
+        decision = input("¿Qué haces? ")
+        print("Buena idea! Llevas a cabo lo que pensaste y logras salir de ahí, corres directo al aeropuerto y regresas a casa.")
+        self.fin_del_juego()
         pass
-
     def codigo(self):
-        print("Te vas por el acceso que está asegurado por código, por lo que tienes que encontrar un código de 4 dígitos para poderla abrir y huir")
+        print("Te vas por el acceso que está asegurado por código, por lo que tienes que encontrar un código de 4 dígitos para poderla abrir y huir...")
         self.resolver()
-
         print("Logras abrirlo y sigilosamente escapas de ahí, vas directo al aeropuerto regresas a casa! No te importa mas el tour y no piensas volver a una ciudad tan espantosa")
         self.fin_del_juego()
-
     
     def descansar(self):
         while True:
-            print("\nLlegas al hostal y preguntas si tienen disponibilidad, te comentan que si cuentan con cuartos disponibles, sin embargo, para obtener una llave, has de responder a una adivinanza, la cual te dirá el número de habitación al que has de llegar.")
             adivinanza = input("~Este era un número impar, pero un día la vuelta se dio bocabajo se quedó y en un número par se convirtió.\nRespuesta: ").lower()
-
             if adivinanza == '9':
+                print("¡Correcto! La habitación es la número 9. Aqui tienes la llave...")
+                print("Llegas a tu habitación, te instalas y cuando estás a punto de dormir escuchas una alarma sonando dentro del lugar, sales de ahí por si se tratara de una emergencia, al salir de tu habitación te das cuenta que el lugar se está incendiando pero tú te encuentras en el segundo piso del lugar.")
                 print("¡Correcto! La habitación es la número 9. Aqui tienes la llave")
                 print("Llegas a tu habitación, te instalas y cuando estás a punto de dormir escuchas una alarma sonando dentro del lugar, sales de ahí por si se tratara de una emergencia, al salir de tu habitación te das cuenta que el lugar se está incendiando pero tú te encuentras en el segundo piso del lugar")
                 self.salir_incendio()  
@@ -340,20 +404,45 @@ class Juego:
                 print("Incorrecto. Intenta de nuevo.")
     
     def salir_incendio(self):
+        print("Nada más alcanzas a agarrar una cosa...")
+        objeto = input("¿Qué agarras? ")
+        print(f"Agarras tu {objeto} y ves la manera de salir lo más rápido posible...")
         print("Debes bajar, pero hay dos opciones: " )
+        eleccion=input("Bajas por las escaleras (escaleras)/ Vas por el elevador (elevador) ")
         eleccion=input("Bajas por las escaleras (escaleras)/ Vas por el elevador (elevador) ").lower()
         if eleccion == 'escaleras':
             self.escaleras()
         elif eleccion == 'elevador':
+            print("Corres al elevador antes de que las llamas del fuego te alcancen, al llegar intentas bajar pero poco antes de que se cerraran las puertas las llamas se esparcen más rápido de lo que pensaste y alcanzan a entrar.")
+            time.sleep(2)
+            print("~Sigue las señales y no uses el elevador en caso de emergencia~")
             print("Corres al elevador antes de que las llamas del fuego te alcancen, al llegar intentas bajar pero poco antes de que se cerraran las puertas las llamas se esparcen más rápido de lo que pensaste y alcanzan a entra")
             self.fin_del_juego()
     
     def escaleras(self):
+        print("Bajas por las escaleras, alcanzas a desviar las llamas del fuego, y sales...")
+        time.sleep(1)
+        decision = input("¿Qué es lo primero que debes hacer en este tipo de situación? ")
+        if "911" in decision:
+            "Correcto, te aseguras de pedir ayuda"
+        if "ayudar" in decision:
+            "Parcialmente correcto, primero llamas al 911 por ayuda profesional y luego ayudas al resto de la gente"
+        else:
+            "Lo correcto sería llamar al 911 para pedir ayuda profesional"
+        time.sleep(2)
+        print("En vista de la mala suerte que has tenido, decides ir al aeropuerto y regresar a casa.")
         print("")
         pass
           
     def dar(self):
         print("\nLe das tus pertenencias y se va, sigues tu rumbo pero no tienes ni dinero ni teléfono para comunicarte por lo que te diriges a la estación policial para reportar tu caso.")
+        time.sleep(1)
+        print("Llegando a la estación te mandan con el encargado de asaltos, llegando a la oficina te das cuenta que el oficial encargado era el hombre apuesto que conociste antes...")
+        time.sleep(1)
+        print("Le comentas lo que pasó y decide ayudarte...")
+        time.sleep(1)
+        print("Se hace tarde y viendo que no tienes lugar donde pasar la noche te ofrece quedarte en su casa o te recomienda un agradable hostal donde pasar la noche...")
+        eleccion = input("Voy a su casa (Escribe casa) / Voy al hostal (Escribe hostal) ")
         print("Llegando a la estación te mandan con el encargado de asaltos, llegando a la oficina te das cuenta que el oficial encargado era el hombre apuesto que conociste antes")
         print("Le comentas lo que pasó y decide ayudarte")
         print("Se hace tarde y viendo que no tienes lugar donde pasar la noche te ofrece quedarte en su casa o te recomienda un agradable hostal donde pasar la noche")
@@ -362,16 +451,112 @@ class Juego:
             self.conocer_casa()
         if eleccion == "hostal":
             self.descansar()
-
+        
     def fin_del_juego(self):
         print("FIN DEL JUEGO")
+        art='''
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣴⣶⣶⣶⣶⣾⣿⣿⣶⣶⣶⣤⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣿⣿⡿⠿⠛⠛⠋⠉⠉⠉⠉⠉⠉⠛⠛⠻⢿⣿⣿⣷⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣿⣿⠿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠻⣿⣿⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣦⡀⠀⢀⣠⣤⣶⡄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⡶⠶⠛⠛⠋⠉⠉⠛⠛⠳⠶⢤⣄⡀⠀⠀⠀⠀⠀⠀⠀⣀⣨⣿⣿⣿⡿⠿⠛⠛⢿⣿⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⠞⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢶⣄⣠⣤⣶⣶⡿⠿⠟⠛⠉⠁⢀⣀⠀⠀⠘⣿⣇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⣠⡾⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⣶⣾⣿⠿⠟⠋⠉⠀⢀⣀⣴⡴⣾⣿⣿⣿⣷⡄⠀⢹⣿⡄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⣾⣿⠇⠀⠀⠀⠀⠀⠀⠀⣴⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣶⣾⣿⠿⠛⠋⠉⠀⠀⠀⢠⣶⣾⣿⣿⠿⠟⠃⢹⣿⡄⠈⣿⣧⠀⠀⣿⣧⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣼⣿⡏⠀⠀⠀⠀⠀⠀⠀⣼⠋⠀⠀⠀⢀⣀⣤⣤⣶⣾⡿⠿⠛⠛⠉⠁⢀⣤⣤⣄⠸⣿⣆⠀⠸⣿⡇⢿⣧⠀⢀⣠⠈⣿⣷⣶⣿⡏⠀⠀⠸⣿⣇⠀⠀
+⠀⠀⠀⠀⠀⢠⣿⣿⠁⠀⠀⠀⠀⠀⠀⣸⣏⣠⣤⣶⣿⡿⠿⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀⣾⣿⠻⣿⣧⠹⣿⣆⠀⣿⡇⠸⣿⣿⣿⠿⠇⠸⣿⡏⢻⣿⣆⠀⠀⢿⣿⡀⠀
+⠀⠀⠀⠀⠀⢸⣿⡟⠀⠀⣀⣠⣴⣶⣿⣿⠿⠟⠋⠉⠀⢀⣠⣤⣶⣾⣧⠀⠀⠀⠀⠀⠀⣿⣿⠀⠈⣿⣧⠘⣿⣆⣿⣿⠀⢻⣿⡄⠀⠀⣀⢻⣿⡀⠙⣿⣷⠄⠘⣿⣧⠀
+⠀⠀⠀⢀⣀⣾⣿⣷⣾⡿⠿⠛⠋⠉⠀⠀⣤⣤⠀⢸⣿⡌⣿⣿⠋⠉⠁⠀⠀⠀⠀⠀⠀⠸⣿⣇⠀⢸⣿⡇⠘⣿⣾⣿⠀⠈⣿⣷⣾⣿⡿⠮⠛⠃⠀⢀⣀⣠⣤⣾⣿⠄
+⣴⣶⣾⡿⠿⠛⠛⠉⠁⠀⠀⠀⣶⣿⣆⠀⢹⣿⣧⣸⣿⣧⠸⣿⣦⣤⣶⣆⠀⠀⠀⠀⠀⠀⢻⣿⣄⢀⣿⡇⠀⠘⣿⣿⡆⠀⠘⠛⠉⠁⣀⣠⣤⣶⣾⣿⠿⠟⠛⠉⠁⠀
+⢹⣿⣇⠀⠀⠀⣴⣿⣿⣷⡄⠀⢹⡿⣿⣆⠈⣿⣿⣿⣿⢿⣆⢻⣿⠟⠋⠉⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⡿⠃⠀⠀⠀⠀⣀⣠⣴⣶⣿⣿⠿⠟⠋⢩⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⢿⣿⡀⠀⠀⣿⣟⠈⠛⠋⠀⢸⣿⠈⣿⣆⠸⣿⣻⣿⡾⣿⡌⣿⣇⣀⣤⣴⡆⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣶⣾⣿⠿⣿⠛⠉⠁⠀⠀⠀⠀⢸⣿⡟⠀⠀⠀⠀⠀⠀
+⠀⠸⣿⣧⠀⠀⢻⣿⠀⣶⣾⣧⠘⣿⣷⣾⣿⣆⢿⣧⠉⠁⢻⣧⢹⣿⡿⠿⠛⠃⠀⢀⣀⣤⣴⣶⡾⡿⠟⠋⠛⠉⠁⠀⣰⠏⠀⠀⠀⠀⠀⠀⠀⣿⣿⠇⠀⠀⠀⠀⠀⠀
+⠀⠀⢹⣿⡄⠀⠈⣿⣧⠙⠙⣿⡆⣿⣟⠉⠘⣿⣾⣿⡆⠀⠀⠛⠁⢀⣀⣠⣤⣶⣿⡿⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⣴⠟⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣿⣷⠀⠀⠘⣿⣷⣴⣿⡏⣿⡿⠀⠀⠈⠉⢀⣀⣠⣴⣶⣿⡿⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠋⠀⠀⠀⠀⠀⠀⠀⣰⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠸⣿⡆⠀⠀⠈⠛⠛⠋⠀⢀⣀⣤⣴⣶⣿⡿⠿⣿⣋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢻⣿⡄⢀⣀⣤⣴⣶⣿⠿⠿⠛⠋⠉⠀⠀⠀⠈⠙⠳⢦⣤⣀⣀⠀⠀⠀⠀⠀⢀⣀⣠⣤⠶⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠈⣿⣿⡿⠿⠛⠙⢿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠙⠛⠛⠛⠛⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣾⣿⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠿⢿⣿⣷⣦⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣶⣿⣿⡿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠿⣿⣿⣿⣿⣷⣶⣶⣶⣾⣿⣿⣿⣿⡿⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀'''
+        print(art)
         opcion=input("Presiona 's' para salir")
         if opcion == 's':
             sys.exit()
-
+            
+            
+            
+            
     #                             PERSONAJE 2
-
     def personaje2(self):
+        print("")
+        print("Has elegido el personaje 2, un hombre historiador.\n ")
+        nombre = input("Ingresa nombre del personaje: ")
+        print(f"Hola {nombre}! Bienvenido, aquí inicia el trayecto...")
+        time.sleep(2)
+        self.p2_lugar()
+    def p2_lugar(self):
+        piramide ='''              
+              /=\\
+             /===\ \
+            /=====\' \
+           /=======\'' \
+          /=========\ ' '\
+         /===========\''   \
+        /=============\ ' '  \
+       /===============\   ''  \
+      /=================\' ' ' ' \
+     /===================\' ' '  ' \
+    /=====================\' '   ' ' \
+   /=======================\  '   ' /
+  /=========================\   ' /
+ /===========================\'  /
+/=============================\/
+'''
+        print(piramide)
+        print("Te encuntras en egipto en busca de una reliquia muy valiosa, según tus datos, este objeto se encuentra dentro de una pirámide y es tu trabajo es encontrarlo.")
+        listo = input("¿Estás listo para iniciar la aventura? si/no ")
+        if listo == 'si':
+            print("Eso es todo! Comenzemos...")
+        if listo == 'no':
+            print("No estés nervioso, lo lograrás!")
+        print("Antes de empezar debemos asegurarnos que tengamos todo lo que necesitamos...")
+        lista_verificacion = ["Linterna", "Agua", "Mapa", "Mochila"]
+        i = 0
+        while i < len(lista_verificacion):
+            tarea = lista_verificacion[i]
+            print("¿Tienes tu '{}'? (si/no)".format(tarea))
+            respuesta = input()
+            respuesta = respuesta.lower()
+            if respuesta == "si":
+                lista_verificacion[i] = True
+            else:
+                lista_verificacion[i] = False
+            i += 1
+        print("Lista de verificación completada:")
+        for tarea in lista_verificacion:
+            if tarea is True:
+                print("* {} (Listo)".format(tarea))
+            else:
+                print("* {}".format(tarea))
+        print("")        
+        print("Entras a la pirámide...")
+        camino = input("¿Qué camino tomas? izquierda / derecha ")
+        if camino == 'izquierda':
+            self.izq()
+        if camino == 'derecha':
+            self.der()
+            
+    #                                                    IZQUIERDA
+    def izq(self):
+        pass
+    #                                                    DERECHA
+    def der(self):
+        pass
+        
         print("Has elegido al Personaje 2. Un hombre turista.")
         self.p_lugar()
         
@@ -380,4 +565,5 @@ class Juego:
         self.personaje1()
             
 correr = Juego()
+correr.introduccion()
 correr.introduccion()
