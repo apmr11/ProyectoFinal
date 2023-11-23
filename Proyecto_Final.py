@@ -4,7 +4,7 @@ import sys
 class Juego:
 
     def __init__(self):
-        vidas = 3
+        pass
 
     def introduccion(self):
 
@@ -240,7 +240,7 @@ o`   'oooo()  | ________   _   _)
             
         else:
             print("Opción no válida.")
-            
+
 
     #                                     TORRE
     def p1_tor1(self) :
@@ -523,10 +523,11 @@ o`   'oooo()  | ________   _   _)
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠿⣿⣿⣿⣿⣷⣶⣶⣶⣾⣿⣿⣿⣿⡿⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀'''
         print(art)
-        opcion=input("Presiona 's' para salir")
+        opcion=input("Presiona 's' para salir/ Presiona 'j' para jugar de nuevo")
         if opcion == 's':
             sys.exit()
-
+        else:
+            self.introduccion()
 
 
 
@@ -569,7 +570,7 @@ o`   'oooo()  | ________   _   _)
         if listo == 'no':
             print("No estés nervioso, lo lograrás!")
 
-        print("Antes de empezar debemos asegurarnos que tengamos todo lo que necesitamos...")
+        print("\nAntes de empezar debemos asegurarnos que tengamos todo lo que necesitamos...")
         lista_verificacion = ["Linterna", "Agua", "Mapa", "Mochila", "Soga"]
         i = 0
         while i < len(lista_verificacion):
@@ -634,14 +635,14 @@ o`   'oooo()  | ________   _   _)
             else:
                 print("No creo que sea lo más adecuado en este momento. Intenta de nuevo")
 
-        print("Continuas el camino, y más adelante topas contra una pared que impide el paso...")
-        time.sleep(1)
+        print("\nContinuas el camino, y más adelante topas contra una pared que impide el paso...")
+        time.sleep(3)
         print("Esta pared contiene símbolos egipcios con acertijos a resolver para abrirse y poder darte el paso...")
-        time.sleep(1)
+        time.sleep(4)
         self.resolver3()
         print("Lo has logrado! Puedes seguir el camino.")
         time.sleep(1)
-        print("Atraviesas la pared y continúas con tu camino...")
+        print("\nAtraviesas la pared y continúas con tu camino...")
         print("Encuentras murciélagos en las paredes y cadáveres tirados por todos lados...")
         self.puente()
 
@@ -661,13 +662,13 @@ o`   'oooo()  | ________   _   _)
         self.trampa()
 
     def trampa(self):
-        print("Continuas el camino y tras dar unos pasos te encuentras con una trampa...")
+        print("\nContinuas el camino y tras dar unos pasos te encuentras con una trampa...")
         print("Tienes que cruzar al otro lado sin que se disparen las flechas de las paredes...")
-        time.sleep(3)
+        time.sleep(4)
         print("Para esto tienes que seguir una especie de patrón y pisar en la roca que contenga el número correcto de la secuencia. Comenzemos...")
-        time.sleep(3)
+        time.sleep(4)
         print("(No olvides que cada que pises una incorrecta pierdes una vida)")
-        time.sleep(1)
+        time.sleep(2)
         print('''
          _______ 
         |  ___  |
@@ -689,6 +690,7 @@ o`   'oooo()  | ________   _   _)
         | |___| |
         |_______|''')
         time.sleep(1)
+        print("")
         opcion1= input("¿Qué número debes pisar después? ")
         if opcion1 == '7':
             print("Lo lograste! Puedes seguir tu camino...")
@@ -701,7 +703,7 @@ o`   'oooo()  | ________   _   _)
         time.sleep(2)
         print("\nContinúas con tu camino...")
         print("Sin darte cuenta, entras en un área de arenas movedizas y te empiezas a hundir poco a poco...")
-        time.sleep(2)
+        time.sleep(4)
         print('''¿Cuál crees que sea la opción correcta en este momento? (Puedes perder una vida si no escoges correctamente)
                  1. Moverme para intentarme zafar
                  2. Buscar un objeto cercano y sugetarme de él
@@ -715,17 +717,59 @@ o`   'oooo()  | ________   _   _)
             self.vidas -= 1
             print(f"Respuesta incorrecta. Te quedan {self.vidas} vidas.")
 
+            
+        self.codigo()
+
+    def codigo(self):
+        print("\nÁnimo ya casi llegas!")
+        print("Te mantienes en el camino, y llegas a una pequeña laguna, te das cuenta que está llena de ánguilas eléctricas por lo que no puedes cruzar caminando...")
+        time.sleep(4)
+        print("La única manera de cruzar es por medio de un pequeño bote amarrado a una roca con un código secreto...")
+        time.sleep(2)
+        print("Tienes que descifrar el código para poder cruzar la pequeña laguna... (Recuerda que puedes perder una vida en caso de no lograrlo)\n")
+        time.sleep(5)
+        print('''
+  ██████  ▒█████  ▄▄▄█████▓ ██▀███  ▓█████ ▒█████  
+▒██    ▒ ▒██▒  ██▒▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀▒██▒  ██▒
+░ ▓██▄   ▒██░  ██▒▒ ▓██░ ▒░▓██ ░▄█ ▒▒███  ▒██░  ██▒
+  ▒   ██▒▒██   ██░░ ▓██▓ ░ ▒██▀▀█▄  ▒▓█  ▄▒██   ██░
+▒██████▒▒░ ████▓▒░  ▒██▒ ░ ░██▓ ▒██▒░▒████░ ████▓▒░
+▒ ▒▓▒ ▒ ░░ ▒░▒░▒░   ▒ ░░   ░ ▒▓ ░▒▓░░░ ▒░ ░ ▒░▒░▒░ 
+░ ░▒  ░    ░ ▒ ▒░     ░      ░▒ ░ ▒░ ░ ░    ░ ▒ ▒░ 
+░  ░  ░  ░ ░ ░ ▒    ░ ░       ░   ░    ░  ░ ░ ░ ▒  
+      ░      ░ ░              ░        ░      ░ ░  
+              ''')
+        print("")
+        codigo = input("¿Cuál es el código encubierto? ")
+        if codigo == "tesoro":
+            print("Lo lograste! Cruzas satisfactoriamente.")
+        else:
+            self.vidas -= 1
+            print(f"Respuesta incorrecta. Te quedan {self.vidas} vidas.")
+            if self.vidas == 0:
+                self.fin_del_juego()
+
+        self.final()
+
+    def final(self):
+        print("\nLo estás ap")
 
 
+    
 
-
+        
+    
 
         
 
 
+    
+
+
     def empezar_juego(self):
         while self.vidas > 0:
-            self.izq(), self.der()
+            self.izq()
+            self.der()
 
 
     
