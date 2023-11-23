@@ -224,11 +224,12 @@ o`   'oooo()  | ____   _   _)
             | |           | |
             ||___|| '''
         print(art)
-        print("\nAl entrar a la habitacion secreta te das cuenta que hay muchos bocetos y pinturas de artistas famosos. Hay algunos preciosos que quisieras llevar contigo. Parece tan sencillo tomarlos, no parece haber nada de proteccion antirobo.")
+        print("\nAl entrar a la habitacion secreta te das cuenta que hay muchos dibujos y pinturas de artistas famosos. Hay algunos preciosos que quisieras llevar contigo. Parece tan sencillo tomarlos, no parece haber nada de proteccion antirobo.")
         eleccion=input("\nTe llevas unas cuantas (Escribe llevar) o Tomas fotos y regresas a la salida antes de que alguien te descubra(Escribe salida)  ").lower()
         
         if eleccion == 'llevar':
-            print("\nAl intentar tomar una obra de la pared, suena una alarma, y el piso sobre el que te parabas se abre, por lo que caes y resulta ser una jaula.")
+            llevar=eleccion(("¿Que te llevas? boceto/pintura"))
+            print("\nAl intentar tomar {llevar}  de la pared, suena una alarma, y el piso sobre el que te parabas se abre, por lo que caes y resulta ser una jaula.")
             print("\nLuego de unos minutos ahi la policia llega y te arresta por ladrona. No saldras de la carcel en muuucho tiempo.")
             self.fin_del_juego()
             
@@ -609,16 +610,186 @@ o`   'oooo()  | ____   _   _)
     def izq(self):
         pass
     #                                                    DERECHA
+    vidas = 3
+    def empezar_juego(self):
+        while self.vidas > 0:
+            self.der()
+            
     def der(self):
-        pass
+        print("Ten en cuenta que solo cuentas con 3 vidas para poder alcanzar tu objetivo, si las gastas es game over")
+        time.sleep(2)
+        print("Tomas el camino de la derecha, entras a un camino obscuro y al final de el te ecuentras con pozo no muy profundo, por el cual seria facil descender...")
+        while True:
+            objeto = input("¿Qué podrías ocupar en este momento? ")
+            if objeto == "soga":
+                print("Correcto! Puedes seguir tu camino...")
+                break
+            else:
+                print("No creo que sea lo más adecuado en este momento. Intenta de nuevo")
+
+        print("Amarras muy bien la soga a una roca que tienes cerca y te dispones a bajar con apoyo de ella.")
+        art='''                                                 /
+                                                 /
+                                                /
+                                               /
+                                              /       |
+                                              /       |
+                                             /        |
+                                            /         |
+                                           /          /
+                                           /         |
+                                          /          |
+                                         /           |
+                                        /            |
+                                        /            |
+                                       /             |
+                                      /              |
+                                     /               |
+                                     /               |
+                                    /                |
+                                   /                 |
+                                 ./                  |
+                                / \                  |
+                               / ) |                 |
+            .@@@@@@.           |   |                 |
+          .@@@@@@@@@           |  .                  /
+          @@@@@@@@  \          |  |                 /
+          @@@@@@@@@  |        /|  \                /
+          @@@@@@ `  <`.       | \  |              |   .
+          @@@@@@      '       | |  |              |    .
+          `@@@@@@.    |       | |   \             |   ..
+            `@@@      )       | |   |             /  ...
+             )    `--'       .-'    |            /     .
+            /-----._______.-' \     |           |    ..
+           ///       ..  ..  .|     |           | . .  .
+          ///   .    ....  ...|     |           |   ...
+     .--.///    ......... ....|    _.           |.     .  .
+    /   /.|     ...... .......|_.-'             |. ..... .
+   /   |..|      ............'  |               |.. ... . .
+  /    |..|   . ... ......./    |               |......  ..
+ /    /...|     .  .......|     |                \.  .... .
+|    / .. \   . ..  ......|     |                 |.. . ..
+|   /. .. .|       .......|     |                 |...... .
+\ _/.. . . |   .  ..  ....|     |                 |. ...  .
+ \\...  . ..\ .  ..  .... |     |                 |........
+  [] . . ....|. .    ... .|     |                  \ .... .
+  //. . . ...|  .    . .. .\    |                   |.......
+    \ .. . ..| .  ....   .. \   |                   |.... .
+     \. . .. |         ......\_________              \.....
+      \... ../    . ....  .....\ . . . `\--.___       \...
+       `----'.      ..  ........| . . .. \     `---._  \....
+            \.    ... ........ .|. . . ..|     ..    \  `...
+             \  .    .. . ...  .|.... . .|.......   . \   |.
+              \.   .  ..........|........|.......  . . |  |..
+               \..... ....... ..|........|___.---.   ..|   \.
+                \............../........'         |   .\    |
+                 \   ........./.......'           |   ..|   |
+                  \ .. ......'.......|            |   ..|   |
+                   `... ...' ........ \           |   ..|   |
+                   | `---'..  ..... . .`.         |  ...|   |.
+                   |     `-. .. . . . ./.\        |  ...|   |..
+                   |        `-.... .. /...\       |  ...|   |
+                   |           `-.  .' ....\      |  ...|   / .
+                  .|`.            `'..   ...\     |  ...| .'  ..
+                 / |..\              `. .....\     \  ../)    .
+                /  |...`-.             `.  ...|     \ ./. )      d8b
+              .'   |    . \             | ....\      \/    oo   d888
+            .'   . |..  .. \            |   ...\      \   d88b d8888
+          .'    .  |     .. \            \   ...\    /.\ d888888888P
+      _.-'         |  .   .  `.           \   ...\   |. d888888888P
+    .'        .    |   .....   `-.         \  ....\  |.. Y888888P
+   /        .      |              \         \   .. /)/. d 888888P
+                   | ..     .....  \         `.   /  ) d88Y8888P
+                .  |   .           .`.         `./    d8888Y88P
+                   |.... .   ..... ...`.         \   d88888P
+                   |   . ..  ..      .  `-._      \.d888888P
+                   |                .  .. ..`.   / Y888888P
+ VK                |   .      . ...  . .  . ..`./.. Y888888
+                    ...    . .       .  .     ./ . . Y8888P
+                    ......    .           ..../..  .   Y.P
+                              ..    ..    ...| . . . .'''
+        print(art)
+        time.sleep(1)
+        print("Una vez en el fondo, hay una entrada... ")
+        art='''
+        88888888888888888888888888888888888888888888888888888888888888888888888
+        88.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..88
+        88   `-.._  |    |`!  |`.  -_ -__ -_ _- _-_-  .'  |.;'   |   _.!-'|  88
+        88      | `-!._  |  `;!  ;. _______________ ,'| .-' |   _!.i'     |  88
+        88..__  |     |`-!._ | `.| |_______________||."'|  _!.;'   |     _|..88
+        88   |``"..__ |    |`";.| i|_|MMMMMMMMMMM|_|'| _!-|   |   _|..-|'    88
+        88   |      |``--..|_ | `;!|l|MMoMMMMoMMM|1|.'j   |_..!-'|     |     88
+        88   |      |    |   |`-,!_|_|MMMMP'YMMMM|_||.!-;'  |    |     |     88
+        88___|______|____!.,.!,.!,!|d|MMMo * loMM|p|,!,.!.,.!..__|_____|_____88
+        88      |     |    |  |  | |_|MMMMb,dMMMM|_|| |   |   |    |      |  88
+        88      |     |    |..!-;'i|r|MPYMoMMMMoM|r| |`-..|   |    |      |  88
+        88      |    _!.-j'  | _!,"|_|M<>MMMMoMMM|_||!._|  `i-!.._ |      |  88
+        88     _!.-'|    | _."|  !;|1|MbdMMoMMMMM|l|`.| `-._|    |``-.._  |  88
+        88..-i'     |  _.''|  !-| !|_|MMMoMMMMoMM|_|.|`-. | ``._ |     |``"..88
+        88   |      |.|    |.|  !| |u|MoMMMMoMMMM|n||`. |`!   | `".    |     88
+        88   |  _.-'  |  .'  |.' |/|_|MMMMoMMMMoM|_|! |`!  `,.|    |-._|     88
+        88  _!"'|     !.'|  .'| .'|[@]MMMMMMMMMMM[@] \|  `. | `._  |   `-._  88
+        88-'    |   .'   |.|  |/| /                 \|`.  |`!    |.|      |`-88
+        88      |_.'|   .' | .' |/                   \  \ |  `.  | `._-Lee|  88
+        88     .'   | .'   |/|  /                     \ |`!   |`.|    `.  |  88
+        88  _.'     !'|   .' | /                       \|  `  |  `.    |`.|  88
+        88 888888888888888 888888888888888888888888888888888888888888888(FL)888'''
+        print(art)
+        print("Los jeroglificos te indican que estas por entrar a un pequeño laberinto. \nElegir el camino equivocado te costara una vida...")
+        print()
+        time.sleep(1)
+        art='''
+                ,---------------------------------------.---------.    
+        |                                       |         |    
+        |    ,-----------------------------.    |    .    |    
+        |    |                             |    |    |    |    
+        |    |    ,-------------------.    |    |    |    |    
+        |    |    |                   |    |    |    |    |    
+        |    |    `----     ,----     |    |    |    |    |    
+        |    |              | X       |    |    |    |    |    
+        |    |    ,---------"---------:    |    `----'    |    
+        |    |    |                   |    |              |    
+        |    `----:    ,---------.    |    `---------.    |    
+        |         |    |         |    |              |    |    
+        |    .    |    |    .    |    |     ---------'    |    
+        |    |    |    |    |    |    |                   |    
+        :----'    |    |    |    |    |    ,--------------:    
+        |         |    |    |    |    |    |              |    
+        |    .    |    `----'    |    |    |     ----.    |    
+        |    |    |              |    |    |         |    |    
+        |    `----"---------     |    |    `---------'    |    
+        |                        |  O |                   |
+        -------------------------      --------------------'''
+        print(art)
         
-        print("Has elegido al Personaje 2. Un hombre turista.")
-        self.p_lugar()
+        while True:
+            objeto = input("¿Qué podrías ocupar en este momento? ")
+            if objeto == "mapa":
+                print("Exacto! Asi sera mas facil...")
+                break
+            else:
+                print("No es lo mejor de tu lista para en este momento. Intenta de nuevo")
+        
+        print("Observa los posibles caminos...")
+        print("\nCamino1: Subes->Izquierda->Bajas->Derecha->Subes->Izquierda->Bajas")
+        print("\nCamino2: Subes->Izquierda->Bajas->Derecha->Bajas->Izquierda->Subes->Derecha->Bajas")
+        print("\nCamino3: Subes->Izquierda->Bajas->Derecha->Bajas->Izquierda->Subes->Derecha->Subes->Izquierda->Bajas")
+        print("\nCamino4: Subes->Izquierda->Bajas->Derecha->Bajas->Izquierda->Subes->Derecha->Subes->Izquierda->Subes->Derecha->Bajas->Derecha->Subes->Izquierda->Bajas")
+        print("\nCamino5: Subes->Izquierda->Bajas->Derecha->Bajas->Izquierda->Subes->Derecha->Subes->Izquierda->Subes->Derecha->Bajas->Derecha->Bajas->Izquierda->Subes->Izquierda->Bajas->Derecha->Subes->Derecha->Bajas->Izquierda")
+        print("\nCamino6: Subes->Izquierda->Bajas->Derecha->Bajas->Izquierda->Subes->Derecha->Subes->Izquierda->Subes->Derecha->Bajas->Derecha->Bajas->Izquierda->Bajas->Derecha->Subes->Izquierda->Bajas->Derecha")
+                
+        while True:
+            camino=input("¿Qué numero de camino seguiras para tomarias para llegar a la x, desde el circulo? ")
+            if camino == '5':
+                print("Muy bien! Has salido del laberinto con vida")
+                break
+            else:
+                print("Ups. Intenta de nuevo. Pierdes una vida")
+                self.vidas-=1
         
     def personaje_default(self):
         print("Opcion no valida. Personaje asignado por defecto.")
-        self.personaje1()
+        self.personaje2()
             
 correr = Juego()
-correr.introduccion()
-correr.introduccion()
+correr.introduccion()    
