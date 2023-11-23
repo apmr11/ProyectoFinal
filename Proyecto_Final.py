@@ -729,19 +729,20 @@ o`   'oooo()  | ________   _   _)
         print("Tienes que descifrar el código para poder cruzar la pequeña laguna... (Recuerda que puedes perder una vida en caso de no lograrlo)\n")
         time.sleep(5)
         print('''
-  ██████  ▒█████  ▄▄▄█████▓ ██▀███  ▓█████ ▒█████  
-▒██    ▒ ▒██▒  ██▒▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀▒██▒  ██▒
-░ ▓██▄   ▒██░  ██▒▒ ▓██░ ▒░▓██ ░▄█ ▒▒███  ▒██░  ██▒
-  ▒   ██▒▒██   ██░░ ▓██▓ ░ ▒██▀▀█▄  ▒▓█  ▄▒██   ██░
-▒██████▒▒░ ████▓▒░  ▒██▒ ░ ░██▓ ▒██▒░▒████░ ████▓▒░
-▒ ▒▓▒ ▒ ░░ ▒░▒░▒░   ▒ ░░   ░ ▒▓ ░▒▓░░░ ▒░ ░ ▒░▒░▒░ 
-░ ░▒  ░    ░ ▒ ▒░     ░      ░▒ ░ ▒░ ░ ░    ░ ▒ ▒░ 
-░  ░  ░  ░ ░ ░ ▒    ░ ░       ░   ░    ░  ░ ░ ░ ▒  
-      ░      ░ ░              ░        ░      ░ ░  
+▒██   ██▒ ▒█████  ▓█████ ███▄    █ ▄▄▄█████▓▓█████
+▒▒ █ █ ▒░▒██▒  ██▒▓█   ▀ ██ ▀█   █ ▓  ██▒ ▓▒▓█   ▀
+░░  █   ░▒██░  ██▒▒███  ▓██  ▀█ ██▒▒ ▓██░ ▒░▒███  
+ ░ █ █ ▒ ▒██   ██░▒▓█  ▄▓██▒  ▐▌██▒░ ▓██▓ ░ ▒▓█  ▄
+▒██▒ ▒██▒░ ████▓▒░░▒████▒██░   ▓██░  ▒██▒ ░ ░▒████
+▒▒ ░ ░▓ ░░ ▒░▒░▒░ ░░ ▒░ ░ ▒░   ▒ ▒   ▒ ░░   ░░ ▒░ 
+░░   ░▒ ░  ░ ▒ ▒░  ░ ░  ░ ░░   ░ ▒░    ░     ░ ░  
+ ░    ░  ░ ░ ░ ▒     ░     ░   ░ ░   ░ ░       ░  
+ ░    ░      ░ ░     ░           ░             ░  
               ''')
         print("")
         codigo = input("¿Cuál es el código encubierto? ")
-        if codigo == "tesoro":
+        if codigo == "exento":
+            print("Muy bien, tus alumnas han exentado!")
             print("Lo lograste! Cruzas satisfactoriamente.")
         else:
             self.vidas -= 1
@@ -752,30 +753,103 @@ o`   'oooo()  | ________   _   _)
         self.final()
 
     def final(self):
-        print("\nLo estás ap")
+        time.sleep(2)
+        print("\nLo estás a punto de lograr, tú puedes!")
+        time.sleep(1)
+        print("Te topas con una colina, pero volteas y ves en la cima aquello que tanto buscabas, la reliquia en forma de un diamante. Tienes que llegar ahí, pero un paso en falso y todo se derrumba..")
+        time.sleep(5)
+        print("En la colina están insertados 5 diamantes de diferente tamaño, tu trabajo es encontrar el orden adecuado para evitar que todo se derrumbe y lograr llegar hasta el diamante. ")
+        print("~Ordenar de menor a mayor tamaño~")
+        time.sleep(5)
 
+        print('''
+      *                                      
+     ***                      
+    *****
+   *******
+  *********
+ ***********
+*************        ->       1
+ ***********
+  *********
+   *******
+    *****
+     ***
+      *
+   *
+  ***
+ *****
+*******      ->           2
+ *****
+  ***
+   *  
+     *
+    ***
+   *****
+  *******
+ *********
+***********         ->          3
+ *********
+  *******
+   *****
+    ***
+     *
+  *
+ ***
+*****          ->       4
+ ***
+  *
+    *
+   ***
+  *****
+ *******
+*********           ->           5
+ *******
+  *****
+   ***
+    *
 
-    
-
+              ''')
         
-    
-
+        print("")
+        secuencia_correcta = [4, 2, 5, 3, 1]  
+        secuencia = []
         
+        orden = input("Inserta el orden correcto de los diamantes (por ejemplo, 12345): ")
 
+        try:
+            secuencia = [int(num) for num in orden]
 
+            if secuencia == secuencia_correcta:
+                print("¡Correcto!.")
+                self.ganar()
+            else:
+                print("Oops, la secuencia es incorrecta. Todo se derrumba.")
+                self.fin_del_juego()
+        except ValueError:
+            print("Error: Ingresa una secuencia válida de números.")
+
+    def ganar(self):
+        print("\n¡FELICIDADES! Lograste conseguir la reliquia")
+        ganar = '''
+       .''.             *''*    :_\/_:     . 
+      :_\/_:   .    .:.*_\/_*   : /\ :  .'.:.'.
+  .''.: /\ : _\(/_  ':'* /\ *  : '..'.  -=:o:=-
+ :_\/_:'.:::. /)\*''*  .|.* '.\'/.'_\(/_'.':'.'
+ : /\ : :::::  '*_\/_* | |  -= o =- /)\    '  *
+  '..'  ':::'   * /\ * |'|  .'/.\'.  '._____
+      *        __*..* |  |     :      |.   |' .---"|
+       _*   .-'   '-. |  |     .--'|  ||   | _|    |
+    .-'|  _.|  |    ||   '-__  |   |  |    ||      |
+    |' | |.    |    ||       | |   |  |    ||      |
+ ___|  '-'     '    ""       '-'   '-.'    '`      |____'''
+        print(ganar)
     
-
 
     def empezar_juego(self):
         while self.vidas > 0:
             self.izq()
             self.der()
-
-
-    
-
-
-
     #                                                    DERECHA
 
     def der(self):
