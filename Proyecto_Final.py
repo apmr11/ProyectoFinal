@@ -544,23 +544,21 @@ o`   'oooo()  | ________   _   _)
 
     def p2_lugar(self):
         piramide ='''              
-              /=\\
-             /===\ \
-            /=====\' \
-           /=======\'' \
-          /=========\ ' '\
-         /===========\''   \
-        /=============\ ' '  \
-       /===============\   ''  \
-      /=================\' ' ' ' \
-     /===================\' ' '  ' \
-    /=====================\' '   ' ' \
-   /=======================\  '   ' /
-  /=========================\   ' /
- /===========================\'  /
-/=============================\/
-
-'''
+           L L               /   \               L L
+        __/|/|_             /  .  \             _|\|\__
+       /_| [_[_\           /     .-\           /_]_] |_\
+      /__\  __`-\_____    /    .    \    _____/-`__  /__\
+     /___] /=@>  _   {>  /-.         \  <}   _  <@=\ [___\
+    /____/     /` `--/  /      .      \  \--` `\     \____\
+   /____/  \____/`-._> /               \ <_.-`\____/  \____\
+  /____/    /__/      /-._     .   _.-  \      \__\    \____\
+ /____/    /__/      /         .         \      \__\    \____\
+|____/_  _/__/      /          .          \      \__\_  _\____|
+ \__/_ ``_|_/      /      -._  .        _.-\      \_|_`` _\___/
+   /__`-`__\      <_         `-;        ____>      /__`-`__\
+      `-`           `-._       ;       _.-`           `-`
+                        `-._   ;   _.-`
+                            `-._.-` '''
 
         print(piramide)
         print("Te encuntras en egipto en busca de una reliquia muy valiosa, según tus datos, este objeto se encuentra dentro de una pirámide y es tu trabajo es encontrarlo.")
@@ -747,6 +745,7 @@ o`   'oooo()  | ________   _   _)
         else:
             self.vidas -= 1
             print(f"Respuesta incorrecta. Te quedan {self.vidas} vidas.")
+            print("Pista, empieza con 'e' y termina con 'o' ")
             if self.vidas == 0:
                 self.fin_del_juego()
 
@@ -826,11 +825,13 @@ o`   'oooo()  | ________   _   _)
             else:
                 print("Oops, la secuencia es incorrecta. Todo se derrumba.")
                 self.fin_del_juego()
+                
         except ValueError:
             print("Error: Ingresa una secuencia válida de números.")
 
     def ganar(self):
         print("\n¡FELICIDADES! Lograste conseguir la reliquia")
+        print("Has ganadooo")
         ganar = '''
        .''.             *''*    :_\/_:     . 
       :_\/_:   .    .:.*_\/_*   : /\ :  .'.:.'.
@@ -844,7 +845,10 @@ o`   'oooo()  | ________   _   _)
     |' | |.    |    ||       | |   |  |    ||      |
  ___|  '-'     '    ""       '-'   '-.'    '`      |____'''
         print(ganar)
-    
+        empezar=input("Presiona 'j' si quieres jugar de nuevo/ Presiona 's' para salir")
+        if empezar=='j':
+            self.introduccion()
+      
 
     def empezar_juego(self):
         while self.vidas > 0:
@@ -865,6 +869,7 @@ o`   'oooo()  | ________   _   _)
                 print("No creo que sea lo más adecuado en este momento. Intenta de nuevo")
 
         print("Amarras muy bien la soga a una roca que tienes cerca y te dispones a bajar con apoyo de ella.")
+        time.sleep(3)
         art='''                                                 /
                                                  /
                                                 /
@@ -946,8 +951,8 @@ o`   'oooo()  | ________   _   _)
                     ......    .           ..../..  .   Y.P
                               ..    ..    ...| . . . .'''
         print(art)
-        time.sleep(1)
         print("Una vez en el fondo, hay una entrada... ")
+        time.sleep(4)
         art='''
         88888888888888888888888888888888888888888888888888888888888888888888888
         88.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..88
@@ -972,9 +977,9 @@ o`   'oooo()  | ________   _   _)
         88  _.'     !'|   .' | /                       \|  `  |  `.    |`.|  88
         88 888888888888888 888888888888888888888888888888888888888888888(FL)888'''
         print(art)
-        print("Los jeroglificos te indican que estas por entrar a un pequeño laberinto. \nElegir el camino equivocado te costara una vida...")
+        print("\nLos jeroglificos te indican que estas por entrar a un pequeño laberinto. \n\nElegir el camino equivocado te costara una vida...")
         print()
-        time.sleep(1)
+        time.sleep(4)
         art='''
                 ,---------------------------------------.---------.    
         |                                       |         |    
@@ -1016,14 +1021,135 @@ o`   'oooo()  | ________   _   _)
         print("\nCamino6: Subes->Izquierda->Bajas->Derecha->Bajas->Izquierda->Subes->Derecha->Subes->Izquierda->Subes->Derecha->Bajas->Derecha->Bajas->Izquierda->Bajas->Derecha->Subes->Izquierda->Bajas->Derecha")
 
         while True:
-            camino=input("¿Qué numero de camino seguiras para tomarias para llegar a la x, desde el circulo? ")
+            camino=input("\n¿Qué numero de camino seguiras para tomarias para llegar a la x, desde el circulo? ")
             if camino == '5':
-                print("Muy bien! Has salido del laberinto con vida")
+                print("\nMuy bien! Has salido del laberinto con vida")
+                self.eleccion()
                 break
+               
+            else:
+                print("\nUps. Intenta de nuevo. Pierdes una vida")
+                self.vidas-=1
+    
+    def eleccion(self):
+        print("\nPero el resto del camino no sera tan facil...")
+        print("\nEl mapa ahora dice que hay dos caminos para llegar a tu objetivo, un pasadizo a tu derecha o una entrada oculta detras de la estatua de un faraon, que esta en la esquina")
+        camino=input("\nHacia donde vas? pasadizo/estatua ")
+        if camino=='pasadizo':
+            self.arenas()
+        elif camino=='estatua':
+            print("Muy bien, eliges la entrada oculta...")
+            self.estatua()
+        else: 
+            print("Opcion no valida :(")
+            
+    def estatua(self):
+        time.sleep(3)
+        print(" \nMueves la estatua con cuidado y en efecto hay una entrada detras. Avanzas un poco cuando de repente escuchas un sonido de cascabel")
+        print("\n¡Oh No! Estas rodeado de cientos de viboras cascabel.")
+        print("Por suerte, el mapa que traes señala como escapar de ellas ileso; recuerdas haberlo visto pero, no en que parte! ")
+        print("Los nervios hacen que texto se vea muy confuso")
+        print("Encuentra las dos palabras claves que revelan como controlar a las viboras antes de que sea demasiado tarde!")
+        art='''
+        N	R	Á	G	B	D	G
+        Q	Ü	A	É	Ú	Ú	O
+        R	F	A	T	B	F	U
+        T	L	Z	D	N	Ñ	C
+        Ú	V	É	X	V	A	Í
+        F	K	Ú	Z	N	Y	C
+        N	O	I	C	N	A	C  '''
+        print (art)
+        
+        while True:
+            camino=input("\n\n¿Cuales son las dos palabras ocultas? Escribe en formato: 'palabra1-palabra2' ")
+            if camino == 'cantar-cancion':
+                print("\nCorrecto! Canta una cancion para hipnotizar a las viboras y salir de esa area peligrosa.")
+                print(" \n'lalalalalala ' ")
+                print("\nExcelente cancion, Camina para salir de ahi. ")
+                time.sleep(4)
+                self.cantar()
+                break
+               
             else:
                 print("Ups. Intenta de nuevo. Pierdes una vida")
+                print("Pista: Las dos palabras empiezan con 'c' ")
                 self.vidas-=1
-
+                
+    def cantar(self):
+        time.sleep(5)
+        print("\nTe entra desesperacion...Quisieras darte por vencido. No puedes ni imaginar cuantas trampas mas quedan por delante")
+        print("\nDe repente... vez un brillo en las alturas...un brillo tan particular que reconocerias a kilometros de distancia. ¡La reliquia!")
+        print("Debes de llegar a ella a como de lugar...")
+        print("Visualizas una escalera recargada en una pared, que podria ser util, aunque tiene algunos peldaños rotos")
+        art='''
+            
+        @@@@@@@@@@@@@@@@@@@@%**#@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@%**#@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@%**#@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@%***@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***#@@@@@@@@@@@@@@@@@@@@%++***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%*****+*@@@@@@@@%++*********@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***@@@@%******#@@%##%@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@%+*@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@%@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%*****+++++*%#%@@@@@@++*****@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@++****%@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@*****%@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@%#@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#=*%@@@@@@@@@@@@@@@@@%*==**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%%#***++++%@@%%++=+****%%**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@#***+%=*#@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@%@@@@@@%@@@@@@@%**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@@@@@@@%**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@@@@@@@%**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@@@@@@%+**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%***+*@@@@@@@@@#+*******#**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@%****+*%@#*%@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@**++==+++++*%@%**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@#*#%@@%**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@@@@@@@%**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**%@@@@@@@@@@@@@@@%@%%%%%@%**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**@**************************#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**@@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**@@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**@@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**@@@@@@@@@@@@@@@@@@@@@@@@@***@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**@@@@@@@@@@@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**@@%%%%%%%%%%%%@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@**@%%%%%%%%%%%%%%%%@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@%%%%%**@%%%%%%%%%%%%%%%@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@@@@@@@%%%%%%%%%%%%**%%%%%%%%%%@@@@@@@@@@@@@@@**#@@@@@@@@@@@@@@@@@
+        @@@%@%%%%%%%%%%%%%%%%**@%%%@@@@@@@@@@%%%######%%***@@@@@@@@@@@@@@@@@
+        %%%%%%%%%%%%%%%%%%%%%**@@@@@@#+++=+++=++++****##**#@@@@@@@@@@@@@@@@'''
+        print(art)
+        print("\nTe das cuenta que los peldaños rotos y no rotos tienen un patron ")
+        print("\nCada escalon esta marcado con un numero y sabes que los escalones rotos son los que tienen los numeros: {5,3,9,7,21...}")
+        secuencia=input("\n¿Con base a esa secuncia, que otros dos escalones estan rotos? (Por ejemplo: 1,2 *sin espacios en blanco)")
+        while True:
+            if secuencia == '19,57':
+                print("¡Correcto!. Puedes subir perfectamente y recojer lo que estas buscando.")
+                self.ganar()
+                break
+            else:
+                print("Oops, los numeros son incorrectos. Caes de una gran graaan altura.")
+                self.fin_del_juego()
+       
     def personaje_default(self):
         print("Opcion no valida. Personaje asignado por defecto.")
         self.personaje2()
