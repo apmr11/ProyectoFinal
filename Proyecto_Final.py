@@ -1031,8 +1031,10 @@ o`   'oooo()  | ________   _   _)
                 break
                
             else:
-                print("\nUps. Intenta de nuevo. Pierdes una vida")
                 self.vidas-=1
+                print(f"Respuesta incorrecta. Te quedan {self.vidas} vidas.")
+                if self.vidas == 0:
+                    self.fin_del_juego()
     
     def eleccion(self):
         print("\nPero el resto del camino no sera tan facil...")
@@ -1074,9 +1076,11 @@ o`   'oooo()  | ________   _   _)
                 break
                
             else:
-                print("Ups. Intenta de nuevo. Pierdes una vida")
+                print(f"Respuesta incorrecta. Te quedan {self.vidas} vidas.")
                 print("Pista: Las dos palabras empiezan con 'c' ")
                 self.vidas-=1
+                if self.vidas == 0:
+                    self.fin_del_juego()
                 
     def cantar(self):
         time.sleep(5)
