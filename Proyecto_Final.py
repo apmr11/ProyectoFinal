@@ -26,6 +26,7 @@ class Juego:
         #time.sleep(5)
         
         print("Elige tu personaje:")
+        print("Recuerda escribir tu eleccion siempre en minusculas :")
         #time.sleep(1)
 
         print("1. Personaje -> Mujer turista en un viaje por Paris")
